@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What We Offer | Eye Lead Center</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{scroll-behavior:smooth;font-family:'Rubik',sans-serif;background:#fdf2f8;}
+
+/* HEADER */
+.offer-header{padding:90px 20px;text-align:center;}
+.offer-header h1{font-size:44px;color:#1F4FD8;font-weight:700;}
+
+/* STICKY MENU */
+.programs-menu{
+  position:sticky;top:80px;z-index:100;background:white;
+  display:flex;justify-content:center;gap:30px;padding:15px 20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);overflow-x:auto;transition:.4s;
+}
+.programs-menu.hidden{display:none;}
+.programs-menu a{
+  text-decoration:none;font-weight:600;color:#FBC02D;
+  padding:8px 18px;border-radius:20px;white-space:nowrap;transition:.3s;
+}
+.programs-menu a:hover,.programs-menu a.active{background:#1F4FD8;color:white;}
+
+/* SECTIONS */
+.program-category{padding:90px 20px;text-align:center;opacity:0;transform:translateY(40px);transition:1s;}
+.program-category.show{opacity:1;transform:translateY(0);}
+.category-title{color:white;font-size:36px;margin-bottom:55px;cursor:pointer;position:relative;}
+
+/* Arrow indicator */
+.category-title::after{content:" ▼";font-size:18px;}
+.program-category.open .category-title::after{content:" ▲";}
+
+/* CARDS */
+.program-cards{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;}
+.program-card{
+  background:white;padding:22px 18px;border-radius:16px;width:230px;
+  font-weight:600;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:.3s;
+}
+.program-card:hover{transform:translateY(-10px);}
+.program-card h4{margin-top:10px;font-size:18px;font-weight:700;}
+
+/* COLORS */
+.blue{background:#1F4FD8;}
+.red{background:#E53935;}
+.purple{background:#7B1FA2;}
+.yellow{background:#FBC02D;}
+.green{background:#2E7D32;}
+
+/* SPACE */
+.section-space{height:120px;}
+
+/* MODAL */
+.program-modal{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+  justify-content:center;align-items:center;z-index:2000;
+}
+.modal-content{
+  background:white;padding:35px;border-radius:20px;width:90%;max-width:520px;
+  text-align:center;position:relative;border-top:10px solid #1F4FD8;
+}
+.modal-content h3{font-size:26px;margin-bottom:15px;}
+.modal-content p{margin-bottom:10px;color:#444;}
+.book-btn{
+  display:inline-block;margin-top:20px;padding:12px 35px;border-radius:30px;
+  background:#1F4FD8;color:white;text-decoration:none;font-weight:600;
+}
+.close-btn{position:absolute;top:15px;right:20px;font-size:28px;cursor:pointer;}
+
+/* BACK TO TOP */
+#backToTop{
+  position:fixed;bottom:30px;right:30px;width:50px;height:50px;
+  background:#FBC02D;color:#1F4FD8;border:none;border-radius:50%;
+  font-size:24px;cursor:pointer;display:flex;justify-content:center;align-items:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1000;transition:.3s;display:none;
+}
+#backToTop:hover{background:#1F4FD8;color:white;transform:translateY(-3px);}
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+
+  .category-title{font-size:26px;margin-bottom:20px;}
+
+  .program-cards{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .6s ease;
+  }
+
+  .program-category.open .program-cards{max-height:3000px;}
+
+  .programs-menu{justify-content:flex-start;}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <a href="Homepage.html">
+        <img src="images/logowhite.png" alt="EyeLead">
+      </a>
+    </div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="events.html">Camps/Events</a></li>
+        <li><a href="Homepage.html">About us</a></li>
+        <li><a href="booking.html">Book A class</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="offer-header">
+<h1>What We Offer</h1>
+</section>
+
+<nav class="programs-menu" id="programsMenu">
+<a href="#educational" class="active">Educational</a>
+<a href="#sports">Sports</a>
+<a href="#arts">Arts</a>
+<a href="#life-skills">Life Skills</a>
+<a href="#support">Support</a>
+</nav>
+
+<!-- EDUCATIONAL -->
+<section id="educational" class="program-category blue">
+<h2 class="category-title">Educational & Cognitive Development</h2>
+<div class="program-cards">
+<div class="program-card" data-color="#1F4FD8" data-title="Grow Smart" data-coach="-" data-time="Weekly" data-desc="Psychomotor development."><h4 style="color:#1F4FD8">Grow Smart</h4></div>
+<div class="program-card" data-color="#1F4FD8" data-title="Speak Smart" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Speech & communication."><h4 style="color:#1F4FD8">Speak Smart</h4></div>
+<div class="program-card" data-color="#1F4FD8" data-title="Coding & Digital Creativity" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Coding projects."><h4 style="color:#1F4FD8">Coding</h4></div>
+<div class="program-card" data-color="#1F4FD8" data-title="Chess Classes" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Strategic thinking."><h4 style="color:#1F4FD8">Chess</h4></div>
+<div class="program-card" data-color="#1F4FD8" data-title="Discovery Lab" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Science exploration."><h4 style="color:#1F4FD8">Discovery Lab</h4></div>
+</div>
+</section>
+
+<div class="section-space"></div>
+
+<!-- SPORTS -->
+<section id="sports" class="program-category red">
+<h2 class="category-title">Sports & Physical Activities</h2>
+<div class="program-cards">
+<div class="program-card" data-color="#E53935" data-title="Basketball Academy" data-coach="Coach Karim" data-time="Tue & Thu" data-desc="Basketball training."><h4 style="color:#E53935">Basketball</h4></div>
+<div class="program-card" data-color="#E53935" data-title="Martial Arts" data-coach="-" data-time="Weekly" data-desc="Mixed Martial Arts"><h4 style="color:#E53935">Martial Arts</h4></div>
+<div class="program-card" data-color="#E53935" data-title="Gymnastics" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Balance & flexibility."><h4 style="color:#E53935">Gymnastics</h4></div>
+<div class="program-card" data-color="#E53935" data-title="Hip-Hop Dance" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Dance & rhythm."><h4 style="color:#E53935">Hip-Hop</h4></div>
+<div class="program-card" data-color="#E53935" data-title="Ping Pong" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Coordination & speed."><h4 style="color:#E53935">Ping Pong</h4></div>
+</div>
+</section>
+
+<div class="section-space"></div>
+
+<!-- ARTS -->
+<section id="arts" class="program-category purple">
+<h2 class="category-title">Arts & Creativity</h2>
+<div class="program-cards">
+<div class="program-card" data-color="#7B1FA2" data-title="Drawing & Painting" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Creative art."><h4 style="color:#7B1FA2">Drawing & Painting</h4></div>
+<div class="program-card" data-color="#7B1FA2" data-title="Music" data-coach="-" data-time="By appointment" data-desc="piano & guitar."><h4 style="color:#7B1FA2">Music</h4></div>
+<div class="program-card" data-color="#7B1FA2" data-title="Theater & Drama" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Stage confidence."><h4 style="color:#7B1FA2">Theater</h4></div>
+<div class="program-card" data-color="#7B1FA2" data-title="Arts & Crafts" data-coach="-" data-time="Flexible – please check updates regularly" data-desc="Creative workshops."><h4 style="color:#7B1FA2">Arts & Crafts</h4></div>
+</div>
+</section>
+
+<div class="section-space"></div>
+
+<!-- LIFE SKILLS -->
+<section id="life-skills" class="program-category yellow">
+<h2 class="category-title">Life Skills & Personal Development</h2>
+<div class="program-cards">
+<div class="program-card" data-color="#FBC02D" data-title="Leadership & Teamwork" data-coach="-" data-time="-" data-desc="Leadership skills."><h4 style="color:#FBC02D">Leadership</h4></div>
+<div class="program-card" data-color="#FBC02D" data-title="New Path Academy" data-coach="-" data-time="By appointment" data-desc=""><h4 style="color:#FBC02D">New Path Academy</h4></div>
+</div>
+</section>
+
+<div class="section-space"></div>
+
+<!-- SUPPORT -->
+<section id="support" class="program-category green">
+<h2 class="category-title">Specialized Support</h2>
+<div class="program-cards">
+<div class="program-card" data-color="#2E7D32" data-title="Psychotherapy" data-coach="-" data-time="By appointment" data-desc="Mental health support."><h4 style="color:#2E7D32">Psychotherapy</h4></div>
+<div class="program-card" data-color="#2E7D32" data-title="Speech Therapy" data-coach="-" data-time="By appointment" data-desc="Speech therapy."><h4 style="color:#2E7D32">Speech Therapy</h4></div>
+<div class="program-card" data-color="#2E7D32" data-title="Psychomotor Therapy" data-coach="-" data-time="By appointment" data-desc="Movement therapy."><h4 style="color:#2E7D32">Psychomotor Therapy</h4></div>
+<div class="program-card" data-color="#2E7D32" data-title="Special Education Support" data-coach="Specialist Team" data-time="By appointment" data-desc="-"><h4 style="color:#2E7D32">Special Education</h4></div>
+</div>
+</section>
+
+<div class="section-space"></div>
+
+<!-- MODAL -->
+<div class="program-modal" id="programModal">
+<div class="modal-content">
+<span class="close-btn">&times;</span>
+<h3 id="modalTitle"></h3>
+<p><strong>Coach:</strong> <span id="modalCoach"></span></p>
+<p><strong>Time:</strong> <span id="modalTime"></span></p>
+<p id="modalDesc"></p>
+<a id="bookBtn" class="book-btn" href="booking.html">Book Now</a>
+</div>
+</div>
+
+<button id="backToTop">&#8679;</button>
+
+<script>
+const modal=document.getElementById("programModal");
+const modalBox=document.querySelector(".modal-content");
+const bookBtn=document.getElementById("bookBtn");
+const programsMenu=document.getElementById("programsMenu");
+
+/* MODAL */
+document.querySelectorAll(".program-card").forEach(card=>{
+  card.onclick=()=>{
+    modal.style.display="flex";
+    modalBox.style.borderTopColor=card.dataset.color;
+    bookBtn.style.background=card.dataset.color;
+    modalTitle.textContent=card.dataset.title;
+    modalCoach.textContent=card.dataset.coach;
+    modalTime.textContent=card.dataset.time;
+    modalDesc.textContent=card.dataset.desc;
+    bookBtn.href="booking.html?program="+encodeURIComponent(card.dataset.title);
+  }
+});
+
+document.querySelector(".close-btn").onclick=()=>modal.style.display="none";
+modal.onclick=e=>{if(e.target===modal)modal.style.display="none";}
+
+/* SCROLL ANIMATION */
+const sections=document.querySelectorAll(".program-category");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("show");});
+},{threshold:.2});
+sections.forEach(sec=>observer.observe(sec));
+
+/* MOBILE ACCORDION (auto close others) */
+document.querySelectorAll(".category-title").forEach(title=>{
+  title.onclick=()=>{
+    if(window.innerWidth<=768){
+      const parent=title.parentElement;
+      document.querySelectorAll(".program-category").forEach(sec=>{
+        if(sec!==parent)sec.classList.remove("open");
+      });
+      parent.classList.toggle("open");
+    }
+  }
+});
+
+/* ACTIVE MENU */
+const menuLinks=document.querySelectorAll(".programs-menu a");
+const sectionsMap=[
+{id:"educational",link:menuLinks[0]},
+{id:"sports",link:menuLinks[1]},
+{id:"arts",link:menuLinks[2]},
+{id:"life-skills",link:menuLinks[3]},
+{id:"support",link:menuLinks[4]}
+];
+
+window.addEventListener("scroll",()=>{
+  let current="";
+  sectionsMap.forEach(sec=>{
+    const section=document.getElementById(sec.id);
+    if(window.scrollY>=section.offsetTop-150)current=sec.id;
+  });
+  menuLinks.forEach(link=>link.classList.remove("active"));
+  const active=sectionsMap.find(s=>s.id===current);
+  if(active)active.link.classList.add("active");
+});
+
+/* HIDE MENU ONLY ON MOBILE CLICK */
+menuLinks.forEach(link=>{
+  link.onclick=e=>{
+    e.preventDefault();
+    document.querySelector(link.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+    if(window.innerWidth<=768){
+      programsMenu.classList.add("hidden");
+    }
+  };
+});
+
+/* BACK TO TOP */
+const backBtn=document.getElementById("backToTop");
+window.addEventListener("scroll",()=>{
+  backBtn.style.display=(window.scrollY>300)?"flex":"none";
+});
+backBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+/* HAMBURGER */
+const hamburger=document.querySelector('.hamburger');
+const navMenu=document.querySelector('nav ul');
+hamburger.addEventListener('click',()=>navMenu.classList.toggle('active'));
+</script>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo"><img src="images/logowhite.png" alt="logo"></div>
+    <div class="footer-nav">
+      <a href="programs.html">Programs</a>
+      <a href="events.html">Camps/Events</a>
+      <a href="Homepage.html">About us</a>
+      <a href="booking.html">Book A Class</a>
+    </div>
+    <div class="footer-contact">
+      <p><img src="images/phone-rounded-svgrepo-com.svg">03 739 496</p>
+      <p><img src="images/location-pin-svgrepo-com.svg">Zahle/Berbara</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/share/1829eKkHAz/?mibextid=wwXIfr"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+      <a href="https://www.instagram.com/eyelead2022/"><img src="images/insta-svgrepo-com.svg" alt="Instagram"></a>
+    </div>
+  </div>
+  <p class="footer-copy">&copy; 2025 Eye Lead Center. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eye Lead Center</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Rubik', sans-serif; background: white; scroll-behavior: smooth; }
+header { width: 100%; position: sticky; top: 0; z-index: 10; }
+.header-content { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 15px; }
+
+/* Header image */
+.header-image { width: 100%; height: 90vh; background-image: url("images/backgroundmain.png"); background-size: cover; background-position: center; position: relative; }
+.header-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; }
+.header-text h1 { font-size: 48px; font-weight: 700; margin-bottom: 15px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+.header-text p { font-size: 20px; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); }
+
+/* About Section */
+.about-section { padding: 80px 60px; text-align: center; }
+.about-section h2 { font-size: 36px; color: #1F4FD8; margin-bottom: 25px; }
+.about-section p { font-size: 18px; color: #1F4FD8; line-height: 1.7; max-width: 1100px; margin: auto; }
+
+/* Fullscreen Slider */
+.fullscreen-slider, .fullscreen-slider .carousel, .fullscreen-slider .carousel-inner, .fullscreen-slider .carousel-item { width: 100%; height: 100vh; }
+.fullscreen-slider img { width: 100%; height: 100vh; object-fit: cover; }
+.slider-overlay { position: absolute; inset: 0; background: rgba(31, 79, 216, 0.35); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px; }
+.slider-overlay h2 { font-size: 48px; font-weight: 700; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.4); }
+.slider-overlay p { font-size: 20px; max-width: 700px; text-shadow: 1px 1px 6px rgba(0,0,0,0.4); }
+@media (max-width: 768px) { .slider-overlay h2 { font-size: 32px; } .slider-overlay p { font-size: 16px; } }
+
+/* Mission & Vision */
+.mission-vision-section { padding: 60px 20px; display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+.mission-vision-item { display: flex; gap: 20px; width: 45%; border: 2px solid #FFD700; padding: 30px; border-radius: 12px; align-items: center; min-width: 300px; }
+.left-side { text-align: center; min-width: 120px; }
+.left-side img { width: 60px; margin-bottom: 10px; }
+.left-side .line1 { font-size: 18px; color: #1F4FD8; }
+.left-side .line2 { font-size: 22px; font-weight: 700; color: #1F4FD8; }
+.right-side p, .right-side ul { color: #1F4FD8; font-size: 16px; line-height: 1.6; }
+@media (max-width: 900px) { .mission-vision-item { width: 100%; } }
+
+/* Glimpse Section */
+.glimpse-section { background-color: #FFD700; padding: 80px 20px; text-align: center; margin-bottom: 60px; }
+.glimpse-title { font-size: 36px; font-weight: 700; color: #1F4FD8; margin-bottom: 50px; }
+.glimpse-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 35px; }
+.glimpse-card { background: white; border-radius: 16px; overflow: hidden; width: 280px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: transform 0.3s ease; }
+.glimpse-card:hover { transform: translateY(-10px); }
+.glimpse-card img { width: 100%; height: 200px; object-fit: cover; }
+.glimpse-card h4 { padding: 15px; color: #1F4FD8; font-weight: 600; }
+.glimpse-activities p { font-size: 18px; color: #1F4FD8; margin-bottom: 30px; }
+.glimpse-cta p { font-size: 20px; color: #1F4FD8; margin-bottom: 15px; }
+.glimpse-btn { display: inline-block; padding: 12px 40px; background-color: #1F4FD8; color: white; border-radius: 30px; text-decoration: none; font-size: 18px; font-weight: 600; transition: background 0.3s ease; }
+.glimpse-btn:hover { background-color: #163db3; }
+
+/* ================= SAFETY OF KIDS ================= */
+.safety-section { padding: 80px 20px; display: flex; justify-content: center; }
+.safety-card { display: flex; background: white; border: 3px solid #FFD700; border-radius: 16px; overflow: hidden; max-width: 1100px; width: 100%; box-shadow: 0 12px 30px rgba(0,0,0,0.15); flex-wrap: wrap; }
+.safety-icon { flex: 1; min-width: 250px; background: #fff; display: flex; justify-content: center; align-items: center; padding: 30px; }
+.safety-icon img { width: 100%; max-width: 280px; object-fit: contain; }
+.safety-info { flex: 2; min-width: 300px; padding: 40px; color: #FFD700; }
+.safety-info h2 { font-size: 30px; margin-bottom: 25px; }
+.safety-info ul li { font-size: 17px; margin-bottom: 12px; list-style: none; display: flex; align-items: center; }
+.safety-info ul li::before { content: "✔"; margin-right: 10px; color: #FFD700; font-weight: bold; }
+
+/* Back to Top Button */
+.back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #FFD700; color: #1F4FD8; font-size: 24px; text-align: center; line-height: 50px; border-radius: 50%; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.3s; z-index: 1000; display: none; }
+.back-to-top:hover { transform: scale(1.1); background-color: #FFC700; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slider-overlay h2 { font-size: 32px; }
+  .slider-overlay p { font-size: 16px; }
+  .glimpse-title { font-size: 28px; }
+  .safety-card { flex-direction: column; text-align: center; }
+  .safety-icon img { max-width: 180px; }
+  .safety-info ul { padding-left: 0; list-style: none; }
+}
+</style>
+</head>
+
+<body id="top">
+<header>
+  <div class="header-content">
+    <div class="logo"><a href="Homepage.html"><img src="images/logowhite.png" alt="EyeLead"></a></div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <nav>
+      <ul>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="events.html">Camps/Events</a></li>
+        <li><a href="Homepage.html">About us</a></li>
+        <li><a href="booking.html">Book A class</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="header-image">
+  <div class="header-text">
+    <h1>Dream. Explore. Achieve.</h1>
+    <p>Helping children grow confidently through learning, creativity, and movement</p>
+  </div>
+</div>
+
+<!-- ================= ABOUT US ================= -->
+<section class="about-section">
+  <h2>About Us</h2>
+  <p>
+    Eye Lead Center is a multidisciplinary educational and developmental center
+    dedicated to supporting children’s growth through learning, movement,
+    creativity, and emotional development.
+    <br><br>
+    Our programs combine education, sports, psychomotor development, and life
+    skills to help children build confidence and grow holistically.
+  </p>
+</section>
+
+<!-- ================= FULL SCREEN SLIDER ================= -->
+<section class="fullscreen-slider">
+  <div id="eyeLeadSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="images/image1.jpg">
+        <div class="slider-overlay"><h2>Learning Through Play</h2><p>Engaging minds with creativity and curiosity</p></div>
+      </div>
+      <div class="carousel-item"><img src="images/image2.jpg"><div class="slider-overlay"><h2>Building Confidence</h2><p>Supporting emotional and social growth</p></div></div>
+      <div class="carousel-item"><img src="images/image3.jpg"><div class="slider-overlay"><h2>Movement & Growth</h2><p>Developing strong bodies and minds</p></div></div>
+      <div class="carousel-item"><img src="images/image4.jpg"><div class="slider-overlay"><h2>Creative Expression</h2><p>Art, imagination, and self-confidence</p></div></div>
+      <div class="carousel-item"><img src="images/image5.jpg"><div class="slider-overlay"><h2>Every Child Matters</h2><p>A safe space to learn, grow, and thrive</p></div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSION & VISION ================= -->
+<section class="mission-vision-section">
+  <div class="mission-vision-item">
+    <div class="left-side"><img src="images/goal-svgrepo-com.svg"><div class="line1">Our</div><div class="line2">Mission</div></div>
+    <div class="right-side"><ul><li>Support children’s development</li><li>Build self-esteem and independence</li><li>Provide a safe and caring environment</li></ul></div>
+  </div>
+  <div class="mission-vision-item">
+    <div class="left-side"><img src="images/vision-svgrepo-com.svg"><div class="line1">Our</div><div class="line2">Vision</div></div>
+    <div class="right-side"><p>To raise confident, creative, and capable children who believe in themselves and lead their own path.</p></div>
+  </div>
+</section>
+
+<!-- 🌟 GLIMPSE OF OUR WORLD -->
+<section class="glimpse-section">
+  <h2 class="glimpse-title">A glimpse of our world</h2>
+  <div class="glimpse-cards">
+    <div class="glimpse-card"><img src="images/learning.jpg"><h4>Learning</h4></div>
+    <div class="glimpse-card"><img src="images/creativity.jpg"><h4>Creativity</h4></div>
+    <div class="glimpse-card"><img src="images/movement.jpg"><h4>Movement</h4></div>
+  </div>
+  <div class="glimpse-activities">Educational Programs • Sports • Art • Life Skills • Emotional Development</div>
+  <div class="glimpse-cta"><p>If you want to know more</p><a href="programs.html" class="glimpse-btn">Programs</a></div>
+</section>
+
+<!-- ================= SAFETY OF KIDS ================= -->
+<section class="safety-section">
+  <div class="safety-card">
+    <div class="safety-icon"><img src="images/insurance-protection-safety-svgrepo-com.svg" alt="Safety Icon"></div>
+    <div class="safety-info">
+      <h2>Safety of Kids</h2>
+      <ul>
+        <li>All activities are supervised by trained staff</li>
+        <li>Hygiene and cleanliness are strictly maintained</li>
+        <li>Safe equipment and play areas for all age groups</li>
+        <li>Emergency procedures and first aid ready at all times</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BACK TO TOP BUTTON ================= -->
+<a href="#top" class="back-to-top" id="backToTop">⬆</a>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo"><img src="images/logowhite.png" alt="logo"></div>
+    <div class="footer-nav">
+      <a href="programs.html">Programs</a>
+      <a href="events.html">Camps/Events</a>
+      <a href="Homepage.html">About us</a>
+      <a href="booking.html">Book A Class</a>
+    </div>
+    <div class="footer-contact">
+      <p><img src="images/phone-rounded-svgrepo-com.svg">03 739 496</p>
+      <p><img src="images/location-pin-svgrepo-com.svg">Zahle/Berbara</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/share/1829eKkHAz/?mibextid=wwXIfr"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+      <a href="https://www.instagram.com/eyelead2022/"><img src="images/insta-svgrepo-com.svg" alt="Instagram"></a>
+    </div>
+  </div>
+  <p class="footer-copy">&copy; 2025 Eye Lead Center. All Rights Reserved.</p>
+</footer>
+
+<script>
+// Hamburger menu
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+hamburger.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+
+// Show Back to Top button on scroll
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 300) { backToTop.style.display = 'block'; } 
+  else { backToTop.style.display = 'none'; }
+});
+</script>
+</body>
+</html>
