@@ -186,7 +186,7 @@ function sendWhatsApp() {
   if(type === "Class") message += `\nCategory: ${category}`;
   message += `\nClass/Event: ${selectedClass}\nI would like to book this.`;
 
-  const whatsappNumber = "96170702613"; // replace with your number
+  const whatsappNumber = "96103739496"; // replace with your number
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   window.open(url, "_blank");
@@ -225,3 +225,4 @@ document.getElementById("categoryDiv").style.display = "none";
 </script>
 </body>
 </html>
+
